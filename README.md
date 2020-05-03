@@ -15,9 +15,9 @@ ucsToSsc ["input\path.ucs"] ["output\path.ssc"]
 - This input will generate default values for the other parameters, which is NOT recommended.
 
 Warning: The path inputs should be in the format:
-'''
+```
 "path\to\your\file.ucs"
-'''
+```
 
 Changelog:
 - 3 May 2020: Add source codes and CLI example
