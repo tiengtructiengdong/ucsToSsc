@@ -7,7 +7,7 @@ Language: C++11
 
 How to use the CLI example (ucsToSsc.exe):
 ```
-ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-filename"] ["level"]
+ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-file"] ["level"]
 ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-file"] [level] [specifiedBPM]
 ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-file"] [level] [specifiedBPM] [offset-MS]
 ```
