@@ -10,8 +10,7 @@ How to use the CLI example (ucsToSsc.exe):
 - ucsToSsc [input-path] [output-path] [title] [artist] [music-filename] [level]
 
 - ucsToSsc [input-path] [output-path]
-
-  This input will generate default values for the other parameters, which is NOT recommended.
+    + This input will generate default values for the other parameters, which is NOT recommended.
 
 Changelog:
 - 3 May 2020: Add source codes and CLI example
