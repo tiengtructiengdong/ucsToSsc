@@ -18,10 +18,10 @@ int main(int argc, char *argv[]) {
 		cout << "Usage:" << endl;
 		cout << "You can use one of these inputs:" << endl;
 		cout << "----------------------------------------------------------------------" << endl;
-		cout << "ucsToSsc [\"input\\path.ssc\"] [\"output\\path.ssc\"]" << endl;
-		cout << "ucsToSsc [\"input\\path.ssc\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level]" << endl;
-		cout << "ucsToSsc [\"input\\path.ssc\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level] [specifiedBPM]" << endl;
-		cout << "ucsToSsc [\"input\\path.ssc\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level] [specifiedBPM] [offset-MS]" << endl;
+		cout << "ucsToSsc [\"input\\path.ucs\"] [\"output\\path.ssc\"]" << endl;
+		cout << "ucsToSsc [\"input\\path.ucs\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level]" << endl;
+		cout << "ucsToSsc [\"input\\path.ucs\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level] [specifiedBPM]" << endl;
+		cout << "ucsToSsc [\"input\\path.ucs\"] [\"output\\path.ssc\"] [\"title\"] [\"artist\"] [\"music-file\"] [level] [specifiedBPM] [offset-MS]" << endl;
 		cout << endl;
 		cout << "Note: [specifiedBPM] is helpful if you use AV (Auto Velocity)." << endl;
 		return -1;
