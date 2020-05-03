@@ -7,12 +7,19 @@ Language: C++11
 
 How to use the CLI example (ucsToSsc.exe):
 ```
-ucsToSsc ["input\path.ucs"] ["output\path.ssc"] [title] [artist] [music-filename] [level]
+ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-filename"] ["level"]
+ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-file"] [level] [specifiedBPM]
+ucsToSsc ["input\path.ucs"] ["output\path.ssc"] ["title"] ["artist"] ["music-file"] [level] [specifiedBPM] [offset-MS]
 ```
 ```
 ucsToSsc ["input\path.ucs"] ["output\path.ssc"]
 ```
 - This input will generate default values for the other parameters, which is NOT recommended.
+
+For example:
+```
+ucsToSsc "C:\Bi s23.ucs" "C:\Bi.ssc" "Bi SDVX" "Sound Voltex" "bi.mp3" 23 169 -200
+```
 
 Warning: The path inputs should be in the format:
 ```
