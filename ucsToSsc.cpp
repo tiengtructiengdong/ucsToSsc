@@ -1,6 +1,6 @@
 #include "ucsToSsc.h"
 
-bool ucsToSsc(std::string path, std::string outpath, std::string title, std::string artist, std::string musicfile, int level) {
+bool ucsToSsc(std::string path, std::string outpath, std::string title, std::string artist, std::string musicfile, int level, double specBPM, int msOffset) {
 	vector<std::string> cmd;
 	ofstream 			output(outpath);
 
@@ -10,9 +10,9 @@ bool ucsToSsc(std::string path, std::string outpath, std::string title, std::str
 	/* INIT */
 
 	output << "#VERSION:0.81;" 								<< endl;
-	output << "#TITLE:" << title << ";" 					<< endl;	//default value
+	output << "#TITLE:" << title << ";" 					<< endl;	
 	output << "#SUBTITLE:;" 								<< endl;
-	output << "#ARTIST:" << artist << ";" 					<< endl;	//default value
+	output << "#ARTIST:" << artist << ";" 					<< endl;	
 	output << "#TITLETRANSLIT:;" 							<< endl;
 	output << "#SUBTITLETRANSLIT:;" 						<< endl;
 	output << "#ARTISTTRANSLIT:;" 							<< endl;
@@ -23,7 +23,7 @@ bool ucsToSsc(std::string path, std::string outpath, std::string title, std::str
 	output << "#BACKGROUND:" << ";"							<< endl;
 	output << "#PREVIEWVID:;" 								<< endl;
 	output << "#CDTITLE:;" 									<< endl;
-	output << "#MUSIC:" << musicfile << ";"					<< endl;	//default value
+	output << "#MUSIC:" << musicfile << ";"					<< endl;	
 	
 	// OFFSET
 	output << "#OFFSET:" << ";"								<< endl;
@@ -36,7 +36,10 @@ bool ucsToSsc(std::string path, std::string outpath, std::string title, std::str
 	output << "#COMBOS:0.000=1;" 							<< endl;
 	output << "#SPEEDS:0.000=1.000=0.000=0;" 				<< endl;
 	output << "#SCROLLS:0.000=1.000;" 						<< endl;
-	output << "#LABELS:0.000=Song Start;" 					<< endl;
+	output << "#LABELS:0.000=Song Start;" << endl;
+	if (specBPM > 0) {
+		output << "#DISPLAYBPM:" << specBPM << ";"			<< endl;
+	}
 	output << endl << endl;
 
 	output << "//----------converted from UCS-----------"	<< endl;
@@ -44,9 +47,14 @@ bool ucsToSsc(std::string path, std::string outpath, std::string title, std::str
 	output << "#STEPSTYPE:" << stepMode(path) << ";"		<< endl;
 	output << "#DESCRIPTION:UCS Converted;"					<< endl;
 	output << "#DIFFICULTY:Edit;" 							<< endl;
-	output << "#METER:" << level << ";" 					<< endl;	//  Modified in UI
+	output << "#METER:" << level << ";" 					<< endl;	
 	output << "#RADARVALUES:;" 								<< endl;
-	output << "#OFFSET:" << ";"								<< endl;
+	if (msOffset > 0) {
+		output << "#OFFSET:" << (double)msOffset/1000 << ";"<< endl;
+	}
+	else {
+		output << "#OFFSET:" << ";"							<< endl;
+	}
 	output << "#BPMS:" << bpmSection(path) << ";" 			<< endl;
 	output << "#STOPS:;" 									<< endl;
 	output << "#DELAYS:;" 									<< endl;
@@ -58,6 +66,9 @@ bool ucsToSsc(std::string path, std::string outpath, std::string title, std::str
 	output << "#SCROLLS:" << scrollSection(path) << ";" 	<< endl;
 	output << "#FAKES:;" 									<< endl;
 	output << "#LABELS:0.000=Song Start;" 					<< endl;
+	if (specBPM > 0) {
+		output << "#DISPLAYBPM:" << specBPM << ";"			<< endl;
+	}
 	output << "#NOTES:" << endl << stepSection(path) << ";" << endl;
 
 	output.close();
